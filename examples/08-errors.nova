@@ -1,0 +1,44 @@
+// Error handling with Result types and the `?` operator.
+
+fn parse_positive(s: String) -> Result<Int, String> {
+    if len(s) == 0 {
+        error "empty string"
+    } else {
+        n = int(s)
+        if n < 0 {
+            error "negative number: {n}"
+        } else {
+            ok n
+        }
+    }
+}
+
+fn reciprocal(n: Int) -> Result<Float, String> {
+    if n == 0 {
+        error "cannot divide by zero"
+    } else {
+        ok 1.0 / float(n)
+    }
+}
+
+fn compute(s: String) -> Result<Float, String> {
+    n = parse_positive(s)?   // propagates error if err
+    reciprocal(n)            // propagates error if err
+}
+
+fn main() {
+    // Direct result handling (values print as ok(...) / err(...)).
+    print(parse_positive("42"))
+    print(parse_positive("-5"))
+    print(parse_positive(""))
+
+    // `?` propagation shortcuts on the first error.
+    print(compute("7"))
+    print(compute("-5"))
+    print(compute("0"))
+
+    r = compute("16")
+    if r == ok(0.0625) {
+        print("computed 1/16 correctly")
+    }
+}

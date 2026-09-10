@@ -1,0 +1,417 @@
+{
+  "name": "main",
+  "imports": [],
+  "decls": [
+    {
+      "kind": "fn",
+      "name": "divide",
+      "typeParams": [],
+      "params": [
+        {
+          "name": "a",
+          "type": "Int"
+        },
+        {
+          "name": "b",
+          "type": "Int"
+        }
+      ],
+      "ret": "Result",
+      "blocks": [
+        {
+          "label": "divide.entry.0",
+          "params": [
+            {
+              "name": "a",
+              "type": "Int"
+            },
+            {
+              "name": "b",
+              "type": "Int"
+            }
+          ],
+          "instrs": [
+            {
+              "kind": "assign",
+              "name": "__t1",
+              "type": "Bool",
+              "value": {
+                "kind": "bin",
+                "op": "==",
+                "left": {
+                  "kind": "ref",
+                  "name": "b",
+                  "type": "Int"
+                },
+                "right": {
+                  "kind": "lit",
+                  "value": 0,
+                  "type": "Int"
+                },
+                "type": "Bool"
+              }
+            }
+          ],
+          "term": {
+            "kind": "branch",
+            "cond": {
+              "kind": "ref",
+              "name": "__t1",
+              "type": "Bool"
+            },
+            "thenLabel": "ife.then.1",
+            "elseLabel": "ife.else.3"
+          }
+        },
+        {
+          "label": "ife.then.1",
+          "params": [],
+          "instrs": [
+            {
+              "kind": "assign",
+              "name": "__t2",
+              "type": "Result<Null, String>",
+              "value": {
+                "kind": "enum_lit",
+                "enumName": "__Result__",
+                "variant": "err",
+                "data": {
+                  "kind": "lit",
+                  "value": "div by zero",
+                  "type": "String"
+                },
+                "type": "Result<Null, String>"
+              }
+            },
+            {
+              "kind": "assign",
+              "name": "__t0",
+              "type": "Result<Null, String>",
+              "value": {
+                "kind": "ref",
+                "name": "__t2",
+                "type": "Result<Null, String>"
+              }
+            }
+          ],
+          "term": {
+            "kind": "jump",
+            "target": "ife.join.2"
+          }
+        },
+        {
+          "label": "ife.else.3",
+          "params": [],
+          "instrs": [
+            {
+              "kind": "assign",
+              "name": "__t3",
+              "type": "Float",
+              "value": {
+                "kind": "bin",
+                "op": "/",
+                "left": {
+                  "kind": "ref",
+                  "name": "a",
+                  "type": "Int"
+                },
+                "right": {
+                  "kind": "ref",
+                  "name": "b",
+                  "type": "Int"
+                },
+                "type": "Float"
+              }
+            },
+            {
+              "kind": "assign",
+              "name": "__t4",
+              "type": "Result<Float, Null>",
+              "value": {
+                "kind": "enum_lit",
+                "enumName": "__Result__",
+                "variant": "ok",
+                "data": {
+                  "kind": "ref",
+                  "name": "__t3",
+                  "type": "Float"
+                },
+                "type": "Result<Float, Null>"
+              }
+            },
+            {
+              "kind": "assign",
+              "name": "__t0",
+              "type": "Result<Null, String>",
+              "value": {
+                "kind": "ref",
+                "name": "__t4",
+                "type": "Result<Float, Null>"
+              }
+            }
+          ],
+          "term": {
+            "kind": "jump",
+            "target": "ife.join.2"
+          }
+        },
+        {
+          "label": "ife.join.2",
+          "params": [],
+          "instrs": [],
+          "term": {
+            "kind": "return",
+            "value": {
+              "kind": "ref",
+              "name": "__t0",
+              "type": "Result<Null, String>"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "fn",
+      "name": "safeDiv",
+      "typeParams": [],
+      "params": [
+        {
+          "name": "a",
+          "type": "Int"
+        },
+        {
+          "name": "b",
+          "type": "Int"
+        }
+      ],
+      "ret": "Result",
+      "blocks": [
+        {
+          "label": "safeDiv.entry.4",
+          "params": [
+            {
+              "name": "a",
+              "type": "Int"
+            },
+            {
+              "name": "b",
+              "type": "Int"
+            }
+          ],
+          "instrs": [
+            {
+              "kind": "assign",
+              "name": "__t5",
+              "type": "Result<Int, String>",
+              "value": {
+                "kind": "call",
+                "callee": {
+                  "kind": "ref",
+                  "name": "divide",
+                  "type": "fn(Int, Int) -> Result<Int, String>"
+                },
+                "args": [
+                  {
+                    "kind": "ref",
+                    "name": "a",
+                    "type": "Int"
+                  },
+                  {
+                    "kind": "ref",
+                    "name": "b",
+                    "type": "Int"
+                  }
+                ],
+                "type": "Result<Int, String>"
+              }
+            }
+          ],
+          "term": {
+            "kind": "branch",
+            "cond": {
+              "kind": "intrinsic",
+              "op": "is_ok",
+              "arg": {
+                "kind": "ref",
+                "name": "__t5",
+                "type": "Result<Int, String>"
+              },
+              "type": "Bool"
+            },
+            "thenLabel": "prop.ok.5",
+            "elseLabel": "prop.err.6"
+          }
+        },
+        {
+          "label": "prop.err.6",
+          "params": [],
+          "instrs": [],
+          "term": {
+            "kind": "return",
+            "value": {
+              "kind": "enum_lit",
+              "enumName": "__Result__",
+              "variant": "err",
+              "data": {
+                "kind": "intrinsic",
+                "op": "unwrap_err",
+                "arg": {
+                  "kind": "ref",
+                  "name": "__t5",
+                  "type": "Result<Int, String>"
+                },
+                "type": "String"
+              },
+              "type": "Result<Int, String>"
+            }
+          }
+        },
+        {
+          "label": "prop.ok.5",
+          "params": [],
+          "instrs": [
+            {
+              "kind": "assign",
+              "name": "__t6",
+              "type": "Int",
+              "value": {
+                "kind": "intrinsic",
+                "op": "unwrap_ok",
+                "arg": {
+                  "kind": "ref",
+                  "name": "__t5",
+                  "type": "Result<Int, String>"
+                },
+                "type": "Int"
+              }
+            },
+            {
+              "kind": "assign",
+              "name": "x",
+              "type": "Int",
+              "value": {
+                "kind": "ref",
+                "name": "__t6",
+                "type": "Int"
+              }
+            },
+            {
+              "kind": "assign",
+              "name": "__t7",
+              "type": "Int",
+              "value": {
+                "kind": "bin",
+                "op": "+",
+                "left": {
+                  "kind": "ref",
+                  "name": "x",
+                  "type": "Int"
+                },
+                "right": {
+                  "kind": "lit",
+                  "value": 1,
+                  "type": "Int"
+                },
+                "type": "Int"
+              }
+            },
+            {
+              "kind": "assign",
+              "name": "__t8",
+              "type": "Result<Int, Null>",
+              "value": {
+                "kind": "enum_lit",
+                "enumName": "__Result__",
+                "variant": "ok",
+                "data": {
+                  "kind": "ref",
+                  "name": "__t7",
+                  "type": "Int"
+                },
+                "type": "Result<Int, Null>"
+              }
+            }
+          ],
+          "term": {
+            "kind": "return",
+            "value": {
+              "kind": "ref",
+              "name": "__t8",
+              "type": "Result<Int, Null>"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "fn",
+      "name": "main",
+      "typeParams": [],
+      "params": [],
+      "ret": "Void",
+      "blocks": [
+        {
+          "label": "main.entry.7",
+          "params": [],
+          "instrs": [
+            {
+              "kind": "assign",
+              "name": "__t9",
+              "type": "Result<Int, String>",
+              "value": {
+                "kind": "call",
+                "callee": {
+                  "kind": "ref",
+                  "name": "safeDiv",
+                  "type": "fn(Int, Int) -> Result<Int, String>"
+                },
+                "args": [
+                  {
+                    "kind": "lit",
+                    "value": 10,
+                    "type": "Int"
+                  },
+                  {
+                    "kind": "lit",
+                    "value": 2,
+                    "type": "Int"
+                  }
+                ],
+                "type": "Result<Int, String>"
+              }
+            },
+            {
+              "kind": "assign",
+              "name": "__t10",
+              "type": "Void",
+              "value": {
+                "kind": "call",
+                "callee": {
+                  "kind": "ref",
+                  "name": "print",
+                  "type": "Null"
+                },
+                "args": [
+                  {
+                    "kind": "ref",
+                    "name": "__t9",
+                    "type": "Result<Int, String>"
+                  }
+                ],
+                "type": "Void"
+              }
+            }
+          ],
+          "term": {
+            "kind": "return",
+            "value": {
+              "kind": "ref",
+              "name": "__t10",
+              "type": "Void"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

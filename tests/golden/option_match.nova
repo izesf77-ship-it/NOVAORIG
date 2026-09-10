@@ -1,0 +1,11 @@
+fn findFirst(items: Array<Int>, target: Int) -> Option<Int> {
+  for item in items {
+    if item == target { some(item) }
+  }
+  none
+}
+
+fn main() {
+  print(findFirst([1, 2, 3, 4], 3))
+  print(findFirst([1, 2, 3, 4], 99))
+}

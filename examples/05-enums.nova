@@ -1,0 +1,51 @@
+// Enums and pattern matching.
+
+enum Color {
+    Red
+    Green
+    Blue
+}
+
+enum Direction {
+    North
+    East
+    South
+    West
+}
+
+fn describe(c: Color) -> String {
+    result: String = ""
+    match c {
+        Color.Red => { result = "warm" }
+        Color.Green => { result = "fresh" }
+        Color.Blue => { result = "calm" }
+    }
+    result
+}
+
+fn move_once(d: Direction) -> String {
+    result: String = ""
+    match d {
+        Direction.North => { result = "(0, -1)" }
+        Direction.South => { result = "(0, 1)" }
+        Direction.East => { result = "(1, 0)" }
+        Direction.West => { result = "(-1, 0)" }
+    }
+    result
+}
+
+fn main() {
+    print("red is {describe(Color.Red)}")
+    print("green is {describe(Color.Green)}")
+    print("blue is {describe(Color.Blue)}")
+
+    // Enum values are first-class and comparable.
+    c = Color.Green
+    if c == Color.Green {
+        print("matched by comparison")
+    }
+
+    for d in [Direction.North, Direction.East, Direction.South, Direction.West] {
+        print("step: {move_once(d)}")
+    }
+}

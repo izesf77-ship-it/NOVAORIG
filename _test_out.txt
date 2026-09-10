@@ -1,0 +1,739 @@
+﻿TAP version 13
+# Subtest: NOVA1001: unexpected character
+ok 1 - NOVA1001: unexpected character
+  ---
+  duration_ms: 24.7537
+  type: 'test'
+  ...
+# Subtest: NOVA2001: well-formed input has no errors
+ok 2 - NOVA2001: well-formed input has no errors
+  ---
+  duration_ms: 3.3322
+  type: 'test'
+  ...
+# Subtest: diagnostics JSON output is structured
+ok 3 - diagnostics JSON output is structured
+  ---
+  duration_ms: 5.29
+  type: 'test'
+  ...
+# Subtest: deterministic diagnostic code + span
+ok 4 - deterministic diagnostic code + span
+  ---
+  duration_ms: 0.7109
+  type: 'test'
+  ...
+# Subtest: NOVA2003: non-exhaustive match arm on int subject is not an error
+ok 5 - NOVA2003: non-exhaustive match arm on int subject is not an error
+  ---
+  duration_ms: 1.2984
+  type: 'test'
+  ...
+# Subtest: NOVA4006: ? operator on non-Result
+ok 6 - NOVA4006: ? operator on non-Result
+  ---
+  duration_ms: 0.695
+  type: 'test'
+  ...
+# Subtest: NOVA4001: type mismatch on operator
+ok 7 - NOVA4001: type mismatch on operator
+  ---
+  duration_ms: 1.2167
+  type: 'test'
+  ...
+# Subtest: NOVA6002: cannot read file
+ok 8 - NOVA6002: cannot read file
+  ---
+  duration_ms: 1.3113
+  type: 'test'
+  ...
+# Subtest: golden
+    # Subtest: factorial.nova
+    ok 1 - factorial.nova
+      ---
+      duration_ms: 10.4193
+      type: 'test'
+      ...
+    # Subtest: option_match.nova
+    ok 2 - option_match.nova
+      ---
+      duration_ms: 4.2011
+      type: 'test'
+      ...
+    1..2
+ok 9 - golden
+  ---
+  duration_ms: 16.6322
+  type: 'suite'
+  ...
+# Subtest: HIR: literals and arithmetic
+ok 10 - HIR: literals and arithmetic
+  ---
+  duration_ms: 8.4325
+  type: 'test'
+  ...
+# Subtest: HIR: if/else
+ok 11 - HIR: if/else
+  ---
+  duration_ms: 3.5956
+  type: 'test'
+  ...
+# Subtest: HIR: struct + field access
+ok 12 - HIR: struct + field access
+  ---
+  duration_ms: 2.4675
+  type: 'test'
+  ...
+# Subtest: HIR: match on enum
+ok 13 - HIR: match on enum
+  ---
+  duration_ms: 2.6445
+  type: 'test'
+  ...
+# Subtest: HIR: Option/Some/None
+ok 14 - HIR: Option/Some/None
+  ---
+  duration_ms: 1.5831
+  type: 'test'
+  ...
+# Subtest: HIR: Result + ? propagation
+ok 15 - HIR: Result + ? propagation
+  ---
+  duration_ms: 1.3406
+  type: 'test'
+  ...
+# Subtest: HIR: closure
+ok 16 - HIR: closure
+  ---
+  duration_ms: 1.0243
+  type: 'test'
+  ...
+# Subtest: HIR: generic identity call
+ok 17 - HIR: generic identity call
+  ---
+  duration_ms: 23.3126
+  type: 'test'
+  ...
+# Subtest: HIR: nominal type prevents mixing
+ok 18 - HIR: nominal type prevents mixing
+  ---
+  duration_ms: 8.6598
+  type: 'test'
+  ...
+# Subtest: hir-structure
+    # Subtest: if/else as tail promotes to if_expr
+    ok 1 - if/else as tail promotes to if_expr
+      ---
+      duration_ms: 6.7917
+      type: 'test'
+      ...
+    # Subtest: let vs assign distinction
+    ok 2 - let vs assign distinction
+      ---
+      duration_ms: 2.0253
+      type: 'test'
+      ...
+    # Subtest: string interpolation lowers to concat
+    ok 3 - string interpolation lowers to concat
+      ---
+      duration_ms: 1.8658
+      type: 'test'
+      ...
+    # Subtest: match lowers to match expr with arms
+    ok 4 - match lowers to match expr with arms
+      ---
+      duration_ms: 1.9422
+      type: 'test'
+      ...
+    1..4
+ok 19 - hir-structure
+  ---
+  duration_ms: 14.7134
+  type: 'suite'
+  ...
+# Subtest: hir-golden
+    # Subtest: golden ast_to_hir.nova
+    ok 1 - golden ast_to_hir.nova
+      ---
+      duration_ms: 6.3269
+      type: 'test'
+      ...
+    1..1
+ok 20 - hir-golden
+  ---
+  duration_ms: 6.6414
+  type: 'suite'
+  ...
+# Subtest: lint
+    # Subtest: NOVA7004 empty block
+    ok 1 - NOVA7004 empty block
+      ---
+      duration_ms: 11.5147
+      type: 'test'
+      ...
+    # Subtest: NOVA7002 unreachable statement
+    ok 2 - NOVA7002 unreachable statement
+      ---
+      duration_ms: 2.679
+      type: 'test'
+      ...
+    # Subtest: NOVA7003 suspicious comparison
+    ok 3 - NOVA7003 suspicious comparison
+      ---
+      duration_ms: 2.2375
+      type: 'test'
+      ...
+    # Subtest: NOVA7005 unnecessary condition
+    ok 4 - NOVA7005 unnecessary condition
+      ---
+      duration_ms: 0.8735
+      type: 'test'
+      ...
+    # Subtest: no lints on clean code
+    ok 5 - no lints on clean code
+      ---
+      duration_ms: 0.8262
+      type: 'test'
+      ...
+    # Subtest: while false marks following unreachable
+    ok 6 - while false marks following unreachable
+      ---
+      duration_ms: 0.8344
+      type: 'test'
+      ...
+    1..6
+ok 21 - lint
+  ---
+  duration_ms: 26.2864
+  type: 'suite'
+  ...
+# Subtest: LLVM backend
+    # Subtest: lowers MIR to deterministic real LLVM IR
+    ok 1 - lowers MIR to deterministic real LLVM IR
+      ---
+      duration_ms: 15.7212
+      type: 'test'
+      ...
+    # Subtest: reports native toolchain availability without mutating the system
+    ok 2 - reports native toolchain availability without mutating the system
+      ---
+      duration_ms: 1451.4311
+      type: 'test'
+      ...
+    # Subtest: lowers the supported MIR coverage matrix
+    ok 3 - lowers the supported MIR coverage matrix
+      ---
+      duration_ms: 9.6119
+      type: 'test'
+      ...
+    # Subtest: rejects unsupported differing-payload Result lowering explicitly
+    ok 4 - rejects unsupported differing-payload Result lowering explicitly
+      ---
+      duration_ms: 0.6508
+      type: 'test'
+      ...
+    1..4
+ok 22 - LLVM backend
+  ---
+  duration_ms: 1479.5152
+  type: 'suite'
+  ...
+# Subtest: M4 ABI тАФ Primitives
+    # Subtest: Int maps to i64
+    ok 1 - Int maps to i64
+      ---
+      duration_ms: 2.1477
+      type: 'test'
+      ...
+    # Subtest: Float maps to f64
+    ok 2 - Float maps to f64
+      ---
+      duration_ms: 0.3834
+      type: 'test'
+      ...
+    # Subtest: Bool maps to i8
+    ok 3 - Bool maps to i8
+      ---
+      duration_ms: 0.2927
+      type: 'test'
+      ...
+    # Subtest: String maps to i8_slice (fat pointer)
+    ok 4 - String maps to i8_slice (fat pointer)
+      ---
+      duration_ms: 0.2945
+      type: 'test'
+      ...
+    # Subtest: Void maps to void
+    ok 5 - Void maps to void
+      ---
+      duration_ms: 0.3609
+      type: 'test'
+      ...
+    1..5
+ok 23 - M4 ABI тАФ Primitives
+  ---
+  duration_ms: 5.9085
+  type: 'suite'
+  ...
+# Subtest: M4 ABI тАФ Aggregates
+    # Subtest: Unknown struct is opaque ptr
+    ok 1 - Unknown struct is opaque ptr
+      ---
+      duration_ms: 0.4761
+      type: 'test'
+      ...
+    # Subtest: Known struct with 2 fields has correct size
+    ok 2 - Known struct with 2 fields has correct size
+      ---
+      duration_ms: 0.6321
+      type: 'test'
+      ...
+    # Subtest: Known enum has i64 discriminant
+    ok 3 - Known enum has i64 discriminant
+      ---
+      duration_ms: 0.4212
+      type: 'test'
+      ...
+    # Subtest: Unknown enum is opaque ptr
+    ok 4 - Unknown enum is opaque ptr
+      ---
+      duration_ms: 0.3687
+      type: 'test'
+      ...
+    # Subtest: Array<Int> is boxed i8_slice
+    ok 5 - Array<Int> is boxed i8_slice
+      ---
+      duration_ms: 0.4717
+      type: 'test'
+      ...
+    # Subtest: Map<Int, Int> is boxed i8_slice
+    ok 6 - Map<Int, Int> is boxed i8_slice
+      ---
+      duration_ms: 0.3103
+      type: 'test'
+      ...
+    # Subtest: Function type is a ptr
+    ok 7 - Function type is a ptr
+      ---
+      duration_ms: 0.2386
+      type: 'test'
+      ...
+    1..7
+ok 24 - M4 ABI тАФ Aggregates
+  ---
+  duration_ms: 3.7284
+  type: 'suite'
+  ...
+# Subtest: M4 ABI тАФ Option/Result
+    # Subtest: Option<Int> uses tagged struct
+    ok 1 - Option<Int> uses tagged struct
+      ---
+      duration_ms: 0.4238
+      type: 'test'
+      ...
+    # Subtest: Option<String> uses nullable pointer
+    ok 2 - Option<String> uses nullable pointer
+      ---
+      duration_ms: 0.2345
+      type: 'test'
+      ...
+    # Subtest: Result<Int, String> has correct size
+    ok 3 - Result<Int, String> has correct size
+      ---
+      duration_ms: 0.3287
+      type: 'test'
+      ...
+    # Subtest: Nominal<Int> unwraps to inner type
+    ok 4 - Nominal<Int> unwraps to inner type
+      ---
+      duration_ms: 0.1866
+      type: 'test'
+      ...
+    1..4
+ok 25 - M4 ABI тАФ Option/Result
+  ---
+  duration_ms: 1.5821
+  type: 'suite'
+  ...
+# Subtest: M4 ABI тАФ Layout utilities
+    # Subtest: alignUp works correctly
+    ok 1 - alignUp works correctly
+      ---
+      duration_ms: 0.2274
+      type: 'test'
+      ...
+    # Subtest: abiTypeSizeAndAlign for primitives
+    ok 2 - abiTypeSizeAndAlign for primitives
+      ---
+      duration_ms: 1.3407
+      type: 'test'
+      ...
+    # Subtest: abiTypeSizeAndAlign for structs with padding
+    ok 3 - abiTypeSizeAndAlign for structs with padding
+      ---
+      duration_ms: 0.2644
+      type: 'test'
+      ...
+    # Subtest: Windows x64 target has correct values
+    ok 4 - Windows x64 target has correct values
+      ---
+      duration_ms: 0.1827
+      type: 'test'
+      ...
+    1..4
+ok 26 - M4 ABI тАФ Layout utilities
+  ---
+  duration_ms: 2.3533
+  type: 'suite'
+  ...
+# Subtest: M4 ABI тАФ LayoutEngine
+    # Subtest: computeStructLayout returns field offsets
+    ok 1 - computeStructLayout returns field offsets
+      ---
+      duration_ms: 0.5692
+      type: 'test'
+      ...
+    # Subtest: fieldOffset returns offset for known field
+    ok 2 - fieldOffset returns offset for known field
+      ---
+      duration_ms: 0.3679
+      type: 'test'
+      ...
+    # Subtest: fieldOffset returns undefined for unknown field or non-struct
+    ok 3 - fieldOffset returns undefined for unknown field or non-struct
+      ---
+      duration_ms: 0.3014
+      type: 'test'
+      ...
+    # Subtest: formatLayout is deterministic
+    ok 4 - formatLayout is deterministic
+      ---
+      duration_ms: 0.5407
+      type: 'test'
+      ...
+    1..4
+ok 27 - M4 ABI тАФ LayoutEngine
+  ---
+  duration_ms: 2.1326
+  type: 'suite'
+  ...
+# Subtest: mir-lowering
+    # Subtest: simple function with arithmetic
+    ok 1 - simple function with arithmetic
+      ---
+      duration_ms: 11.437
+      type: 'test'
+      ...
+    # Subtest: variables and assignment
+    ok 2 - variables and assignment
+      ---
+      duration_ms: 5.7094
+      type: 'test'
+      ...
+    # Subtest: if/else lowers to branch + join
+    ok 3 - if/else lowers to branch + join
+      ---
+      duration_ms: 1.9138
+      type: 'test'
+      ...
+    # Subtest: nested if
+    ok 4 - nested if
+      ---
+      duration_ms: 1.1686
+      type: 'test'
+      ...
+    # Subtest: while loop
+    ok 5 - while loop
+      ---
+      duration_ms: 1.6742
+      type: 'test'
+      ...
+    # Subtest: for loop over array
+    ok 6 - for loop over array
+      ---
+      duration_ms: 1.5965
+      type: 'test'
+      ...
+    # Subtest: break and continue
+    ok 7 - break and continue
+      ---
+      duration_ms: 1.6629
+      type: 'test'
+      ...
+    # Subtest: early return
+    ok 8 - early return
+      ---
+      duration_ms: 0.9737
+      type: 'test'
+      ...
+    # Subtest: recursion: factorial
+    ok 9 - recursion: factorial
+      ---
+      duration_ms: 2.2838
+      type: 'test'
+      ...
+    # Subtest: recursion: fibonacci
+    ok 10 - recursion: fibonacci
+      ---
+      duration_ms: 2.1082
+      type: 'test'
+      ...
+    1..10
+ok 28 - mir-lowering
+  ---
+  duration_ms: 35.1781
+  type: 'suite'
+  ...
+# Subtest: mir-data
+    # Subtest: struct construction and field access
+    ok 1 - struct construction and field access
+      ---
+      duration_ms: 2.3289
+      type: 'test'
+      ...
+    # Subtest: struct field assignment
+    ok 2 - struct field assignment
+      ---
+      duration_ms: 0.5297
+      type: 'test'
+      ...
+    # Subtest: enum construction (unit variants)
+    ok 3 - enum construction (unit variants)
+      ---
+      duration_ms: 0.7186
+      type: 'test'
+      ...
+    # Subtest: match on enum with branch cascade
+    ok 4 - match on enum with branch cascade
+      ---
+      duration_ms: 1.6683
+      type: 'test'
+      ...
+    # Subtest: match with binding subject
+    ok 5 - match with binding subject
+      ---
+      duration_ms: 0.4623
+      type: 'test'
+      ...
+    # Subtest: array literal and index
+    ok 6 - array literal and index
+      ---
+      duration_ms: 0.3801
+      type: 'test'
+      ...
+    # Subtest: array index assignment
+    ok 7 - array index assignment
+      ---
+      duration_ms: 0.3462
+      type: 'test'
+      ...
+    # Subtest: map literal, access, assignment
+    ok 8 - map literal, access, assignment
+      ---
+      duration_ms: 0.5271
+      type: 'test'
+      ...
+    1..8
+ok 29 - mir-data
+  ---
+  duration_ms: 7.4478
+  type: 'suite'
+  ...
+# Subtest: mir-option-result
+    # Subtest: Option some/none construction
+    ok 1 - Option some/none construction
+      ---
+      duration_ms: 0.775
+      type: 'test'
+      ...
+    # Subtest: Result ok/error construction
+    ok 2 - Result ok/error construction
+      ---
+      duration_ms: 0.7364
+      type: 'test'
+      ...
+    # Subtest: ? propagation on Result error
+    ok 3 - ? propagation on Result error
+      ---
+      duration_ms: 2.4422
+      type: 'test'
+      ...
+    # Subtest: ? propagation on Option none
+    ok 4 - ? propagation on Option none
+      ---
+      duration_ms: 0.6382
+      type: 'test'
+      ...
+    1..4
+ok 30 - mir-option-result
+  ---
+  duration_ms: 4.972
+  type: 'suite'
+  ...
+# Subtest: mir-closures
+    # Subtest: closure with capture
+    ok 1 - closure with capture
+      ---
+      duration_ms: 1.664
+      type: 'test'
+      ...
+    # Subtest: closure returned from function
+    ok 2 - closure returned from function
+      ---
+      duration_ms: 0.8605
+      type: 'test'
+      ...
+    1..2
+ok 31 - mir-closures
+  ---
+  duration_ms: 2.7381
+  type: 'suite'
+  ...
+# Subtest: mir-nested-blocks
+    # Subtest: nested blocks scope correctly
+    ok 1 - nested blocks scope correctly
+      ---
+      duration_ms: 0.5036
+      type: 'test'
+      ...
+    1..1
+ok 32 - mir-nested-blocks
+  ---
+  duration_ms: 0.6405
+  type: 'suite'
+  ...
+# Subtest: mir-structure
+    # Subtest: every block has exactly one terminator
+    ok 1 - every block has exactly one terminator
+      ---
+      duration_ms: 0.8483
+      type: 'test'
+      ...
+    # Subtest: all terminator targets reference existing blocks
+    ok 2 - all terminator targets reference existing blocks
+      ---
+      duration_ms: 0.6474
+      type: 'test'
+      ...
+    # Subtest: entry block is first
+    ok 3 - entry block is first
+      ---
+      duration_ms: 0.6562
+      type: 'test'
+      ...
+    # Subtest: JSON serialization is deterministic
+    ok 4 - JSON serialization is deterministic
+      ---
+      duration_ms: 0.7285
+      type: 'test'
+      ...
+    # Subtest: match is lowered to control flow, not a high-level instruction
+    ok 5 - match is lowered to control flow, not a high-level instruction
+      ---
+      duration_ms: 2.3682
+      type: 'test'
+      ...
+    1..5
+ok 33 - mir-structure
+  ---
+  duration_ms: 5.7544
+  type: 'suite'
+  ...
+# Subtest: mir-verifier
+    # Subtest: missing terminator is caught
+    ok 1 - missing terminator is caught
+      ---
+      duration_ms: 12.2294
+      type: 'test'
+      ...
+    # Subtest: jump to non-existent block is caught
+    ok 2 - jump to non-existent block is caught
+      ---
+      duration_ms: 1.2443
+      type: 'test'
+      ...
+    # Subtest: branch to non-existent block is caught
+    ok 3 - branch to non-existent block is caught
+      ---
+      duration_ms: 2.1805
+      type: 'test'
+      ...
+    # Subtest: use before definition is caught
+    ok 4 - use before definition is caught
+      ---
+      duration_ms: 1.0334
+      type: 'test'
+      ...
+    # Subtest: duplicate block label is caught
+    ok 5 - duplicate block label is caught
+      ---
+      duration_ms: 1.2111
+      type: 'test'
+      ...
+    # Subtest: non-entry block with params is caught
+    ok 6 - non-entry block with params is caught
+      ---
+      duration_ms: 1.9657
+      type: 'test'
+      ...
+    # Subtest: type mismatch in assign is caught
+    ok 7 - type mismatch in assign is caught
+      ---
+      duration_ms: 0.8145
+      type: 'test'
+      ...
+    # Subtest: void function returning a value is caught
+    ok 8 - void function returning a value is caught
+      ---
+      duration_ms: 0.6759
+      type: 'test'
+      ...
+    # Subtest: non-void function missing return value is caught
+    ok 9 - non-void function missing return value is caught
+      ---
+      duration_ms: 1.5569
+      type: 'test'
+      ...
+    # Subtest: call arity mismatch is caught
+    ok 10 - call arity mismatch is caught
+      ---
+      duration_ms: 1.3906
+      type: 'test'
+      ...
+    1..10
+ok 34 - mir-verifier
+  ---
+  duration_ms: 27.3089
+  type: 'suite'
+  ...
+# Subtest: mir-golden
+    # Subtest: golden abs.nova
+    ok 1 - golden abs.nova
+      ---
+      duration_ms: 21.8463
+      type: 'test'
+      ...
+    # Subtest: golden closure.nova
+    ok 2 - golden closure.nova
+      ---
+      duration_ms: 3.2286
+      type: 'test'
+      ...
+    # Subtest: golden match_enum.nova
+    ok 3 - golden match_enum.nova
+      ---
+      duration_ms: 5.9644
+      type: 'test'
+      ...
+    # Subtest: golden propagation.nova
+    ok 4 - golden propagation.nova
+      ---
+      duration_ms: 4.8926
+      type: 'test'
+      ...
+    1..4
+ok 35 - mir-golden
+  ---
+  duration_ms: 38.1178
+  type: 'suite'
+  ...

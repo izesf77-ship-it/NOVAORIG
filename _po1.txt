@@ -1,0 +1,15 @@
+﻿diags: [
+ {
+  "code": "NOVA3002",
+  "severity": "error",
+  "message": "undefined name 'n'",
+  "span": {
+   "file": "test.nova",
+   "start": 54,
+   "end": 55,
+   "line": 2,
+   "col": 31
+  },
+  "help": "declare it with an assignment (`name = value`) or check the spelling"
+ }
+]

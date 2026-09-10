@@ -1,0 +1,12 @@
+struct User {
+    id: Int
+    name: String
+}
+
+fn main() {
+    u = User(id: 1, name: "A")
+    u.id = 42
+    u.name = "Kirill"
+    println(u.id)
+    println(u.name)
+}

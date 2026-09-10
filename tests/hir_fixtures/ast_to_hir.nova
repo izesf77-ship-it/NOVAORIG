@@ -1,0 +1,22 @@
+enum Color { Red, Green, Blue }
+
+fn describe(c: Color) -> String {
+  match c {
+    Color.Red => "red"
+    Color.Green => "green"
+    Color.Blue => "blue"
+  }
+}
+
+fn count(n: Int) -> Int {
+  total = 0
+  for i in range(n) {
+    total = total + i
+  }
+  total
+}
+
+fn main() {
+  print(describe(Color.Green))
+  print(count(4))
+}

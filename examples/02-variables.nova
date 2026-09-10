@@ -1,0 +1,32 @@
+// Variables, types, and basic expressions.
+
+// Constants are top-level declarations.
+const PI = 3.14159
+
+fn main() {
+    // Immutable binding with explicit type
+    name: String = "Kirill"
+    
+    // Type inference
+    age = 25
+    
+    // Mutations (age is mutable)
+    age = age + 1
+    
+    // Interpolation
+    print("My name is {name} and I am {age} years old.")
+    
+    // Arithmetic
+    x = 10
+    y = 3
+    print("sum: {x + y}")
+    print("product: {x * y}")
+    print("division: {x / y}")
+    print("modulo: {x % y}")
+    
+    // Booleans
+    flag: Bool = true
+    if flag and age > 18 {
+        print("Adult")
+    }
+}

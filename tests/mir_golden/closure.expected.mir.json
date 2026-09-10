@@ -1,0 +1,194 @@
+{
+  "name": "main",
+  "imports": [],
+  "decls": [
+    {
+      "kind": "closure_fn",
+      "name": "__closure_0",
+      "params": [
+        {
+          "name": "y",
+          "type": "Null"
+        },
+        {
+          "name": "x",
+          "type": "Int"
+        }
+      ],
+      "ret": "Int",
+      "captured": [
+        "x"
+      ],
+      "blocks": [
+        {
+          "label": "__closure_0.entry.1",
+          "params": [
+            {
+              "name": "y",
+              "type": "Null"
+            },
+            {
+              "name": "x",
+              "type": "Int"
+            }
+          ],
+          "instrs": [
+            {
+              "kind": "assign",
+              "name": "__t0",
+              "type": "Int",
+              "value": {
+                "kind": "bin",
+                "op": "+",
+                "left": {
+                  "kind": "ref",
+                  "name": "x",
+                  "type": "Int"
+                },
+                "right": {
+                  "kind": "ref",
+                  "name": "y",
+                  "type": "Null"
+                },
+                "type": "Int"
+              }
+            }
+          ],
+          "term": {
+            "kind": "return",
+            "value": {
+              "kind": "ref",
+              "name": "__t0",
+              "type": "Int"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "fn",
+      "name": "makeAdder",
+      "typeParams": [],
+      "params": [
+        {
+          "name": "x",
+          "type": "Int"
+        }
+      ],
+      "ret": "fn(Int) -> Int",
+      "blocks": [
+        {
+          "label": "makeAdder.entry.0",
+          "params": [
+            {
+              "name": "x",
+              "type": "Int"
+            }
+          ],
+          "instrs": [],
+          "term": {
+            "kind": "return",
+            "value": {
+              "kind": "closure_ref",
+              "fnName": "__closure_0",
+              "captures": [
+                {
+                  "kind": "ref",
+                  "name": "x",
+                  "type": "Int"
+                }
+              ],
+              "type": "fn(Null) -> Int"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "fn",
+      "name": "main",
+      "typeParams": [],
+      "params": [],
+      "ret": "Void",
+      "blocks": [
+        {
+          "label": "main.entry.2",
+          "params": [],
+          "instrs": [
+            {
+              "kind": "assign",
+              "name": "__t1",
+              "type": "fn(Int) -> Int",
+              "value": {
+                "kind": "call",
+                "callee": {
+                  "kind": "ref",
+                  "name": "makeAdder",
+                  "type": "fn(Int) -> fn(Int) -> Int"
+                },
+                "args": [
+                  {
+                    "kind": "lit",
+                    "value": 7,
+                    "type": "Int"
+                  }
+                ],
+                "type": "fn(Int) -> Int"
+              }
+            },
+            {
+              "kind": "assign",
+              "name": "__t2",
+              "type": "Int",
+              "value": {
+                "kind": "call",
+                "callee": {
+                  "kind": "ref",
+                  "name": "__t1",
+                  "type": "fn(Int) -> Int"
+                },
+                "args": [
+                  {
+                    "kind": "lit",
+                    "value": 3,
+                    "type": "Int"
+                  }
+                ],
+                "type": "Int"
+              }
+            },
+            {
+              "kind": "assign",
+              "name": "__t3",
+              "type": "Void",
+              "value": {
+                "kind": "call",
+                "callee": {
+                  "kind": "ref",
+                  "name": "print",
+                  "type": "Null"
+                },
+                "args": [
+                  {
+                    "kind": "ref",
+                    "name": "__t2",
+                    "type": "Int"
+                  }
+                ],
+                "type": "Void"
+              }
+            }
+          ],
+          "term": {
+            "kind": "return",
+            "value": {
+              "kind": "ref",
+              "name": "__t3",
+              "type": "Void"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

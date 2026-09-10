@@ -1,0 +1,1 @@
+["C:\\Program Files\\nodejs\\node.exe","C:\\Users\\admin\\Desktop\\NOVA\\scripts\\m5_smoke.ts","run","argx"]

@@ -1,0 +1,10 @@
+fn main() {
+    r = file_read("nova_test_file.txt")
+    println("A")
+    println(r)
+    match r {
+        ok(text) => { println("B: {text}") }
+        error(e) => { println("C") }
+    }
+    println("D")
+}

@@ -1,0 +1,17 @@
+{
+  "name": "nova-lang",
+  "version": "0.1.0",
+  "description": "NOVA — a modern, type-safe, AI-native programming language",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "bin": {
+    "nova": "./bin/nova.ts"
+  },
+  "scripts": {
+    "nova": "node bin/nova.ts",
+    "test": "node --test tests/"
+  }
+}

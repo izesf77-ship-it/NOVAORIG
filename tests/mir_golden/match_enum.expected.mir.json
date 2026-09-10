@@ -1,0 +1,258 @@
+{
+  "name": "main",
+  "imports": [],
+  "decls": [
+    {
+      "kind": "enum",
+      "name": "Color",
+      "typeParams": [],
+      "variants": [
+        {
+          "name": "Red"
+        },
+        {
+          "name": "Green"
+        },
+        {
+          "name": "Blue"
+        }
+      ]
+    },
+    {
+      "kind": "fn",
+      "name": "name",
+      "typeParams": [],
+      "params": [
+        {
+          "name": "c",
+          "type": "Color"
+        }
+      ],
+      "ret": "String",
+      "blocks": [
+        {
+          "label": "name.entry.0",
+          "params": [
+            {
+              "name": "c",
+              "type": "Color"
+            }
+          ],
+          "instrs": [],
+          "term": {
+            "kind": "branch",
+            "cond": {
+              "kind": "bin",
+              "op": "==",
+              "left": {
+                "kind": "ref",
+                "name": "c",
+                "type": "Color"
+              },
+              "right": {
+                "kind": "enum_lit",
+                "enumName": "Color",
+                "variant": "Red",
+                "type": "Color"
+              },
+              "type": "Bool"
+            },
+            "thenLabel": "match.arm0.body.5",
+            "elseLabel": "match.arm1.test.3"
+          }
+        },
+        {
+          "label": "match.arm0.body.5",
+          "params": [],
+          "instrs": [
+            {
+              "kind": "assign",
+              "name": "__t0",
+              "type": "String",
+              "value": {
+                "kind": "lit",
+                "value": "red",
+                "type": "String"
+              }
+            }
+          ],
+          "term": {
+            "kind": "jump",
+            "target": "match.exit.1"
+          }
+        },
+        {
+          "label": "match.arm1.test.3",
+          "params": [],
+          "instrs": [],
+          "term": {
+            "kind": "branch",
+            "cond": {
+              "kind": "bin",
+              "op": "==",
+              "left": {
+                "kind": "ref",
+                "name": "c",
+                "type": "Color"
+              },
+              "right": {
+                "kind": "enum_lit",
+                "enumName": "Color",
+                "variant": "Green",
+                "type": "Color"
+              },
+              "type": "Bool"
+            },
+            "thenLabel": "match.arm1.body.6",
+            "elseLabel": "match.arm2.test.4"
+          }
+        },
+        {
+          "label": "match.arm1.body.6",
+          "params": [],
+          "instrs": [
+            {
+              "kind": "assign",
+              "name": "__t0",
+              "type": "String",
+              "value": {
+                "kind": "lit",
+                "value": "green",
+                "type": "String"
+              }
+            }
+          ],
+          "term": {
+            "kind": "jump",
+            "target": "match.exit.1"
+          }
+        },
+        {
+          "label": "match.arm2.test.4",
+          "params": [],
+          "instrs": [],
+          "term": {
+            "kind": "branch",
+            "cond": {
+              "kind": "bin",
+              "op": "==",
+              "left": {
+                "kind": "ref",
+                "name": "c",
+                "type": "Color"
+              },
+              "right": {
+                "kind": "enum_lit",
+                "enumName": "Color",
+                "variant": "Blue",
+                "type": "Color"
+              },
+              "type": "Bool"
+            },
+            "thenLabel": "match.arm2.body.7",
+            "elseLabel": "match.exit.1"
+          }
+        },
+        {
+          "label": "match.arm2.body.7",
+          "params": [],
+          "instrs": [
+            {
+              "kind": "assign",
+              "name": "__t0",
+              "type": "String",
+              "value": {
+                "kind": "lit",
+                "value": "blue",
+                "type": "String"
+              }
+            }
+          ],
+          "term": {
+            "kind": "jump",
+            "target": "match.exit.1"
+          }
+        },
+        {
+          "label": "match.exit.1",
+          "params": [],
+          "instrs": [],
+          "term": {
+            "kind": "return",
+            "value": {
+              "kind": "ref",
+              "name": "__t0",
+              "type": "String"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "fn",
+      "name": "main",
+      "typeParams": [],
+      "params": [],
+      "ret": "Void",
+      "blocks": [
+        {
+          "label": "main.entry.8",
+          "params": [],
+          "instrs": [
+            {
+              "kind": "assign",
+              "name": "__t1",
+              "type": "String",
+              "value": {
+                "kind": "call",
+                "callee": {
+                  "kind": "ref",
+                  "name": "name",
+                  "type": "fn(Color) -> String"
+                },
+                "args": [
+                  {
+                    "kind": "enum_lit",
+                    "enumName": "Color",
+                    "variant": "Green",
+                    "type": "Color"
+                  }
+                ],
+                "type": "String"
+              }
+            },
+            {
+              "kind": "assign",
+              "name": "__t2",
+              "type": "Void",
+              "value": {
+                "kind": "call",
+                "callee": {
+                  "kind": "ref",
+                  "name": "print",
+                  "type": "Null"
+                },
+                "args": [
+                  {
+                    "kind": "ref",
+                    "name": "__t1",
+                    "type": "String"
+                  }
+                ],
+                "type": "Void"
+              }
+            }
+          ],
+          "term": {
+            "kind": "return",
+            "value": {
+              "kind": "ref",
+              "name": "__t2",
+              "type": "Void"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

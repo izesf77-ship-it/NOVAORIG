@@ -1,0 +1,12 @@
+ast
+backend
+codegen
+diagnostics
+driver.ts
+hir
+lexer
+mir
+parser
+resolver
+transforms
+typechecker

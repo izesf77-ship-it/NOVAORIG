@@ -1,0 +1,209 @@
+{
+  "name": "main",
+  "imports": [],
+  "decls": [
+    {
+      "kind": "fn",
+      "name": "abs",
+      "typeParams": [],
+      "params": [
+        {
+          "name": "n",
+          "type": "Int"
+        }
+      ],
+      "ret": "Int",
+      "blocks": [
+        {
+          "label": "abs.entry.0",
+          "params": [
+            {
+              "name": "n",
+              "type": "Int"
+            }
+          ],
+          "instrs": [
+            {
+              "kind": "assign",
+              "name": "__t1",
+              "type": "Bool",
+              "value": {
+                "kind": "bin",
+                "op": "<",
+                "left": {
+                  "kind": "ref",
+                  "name": "n",
+                  "type": "Int"
+                },
+                "right": {
+                  "kind": "lit",
+                  "value": 0,
+                  "type": "Int"
+                },
+                "type": "Bool"
+              }
+            }
+          ],
+          "term": {
+            "kind": "branch",
+            "cond": {
+              "kind": "ref",
+              "name": "__t1",
+              "type": "Bool"
+            },
+            "thenLabel": "ife.then.1",
+            "elseLabel": "ife.else.3"
+          }
+        },
+        {
+          "label": "ife.then.1",
+          "params": [],
+          "instrs": [
+            {
+              "kind": "assign",
+              "name": "__t2",
+              "type": "Int",
+              "value": {
+                "kind": "unary",
+                "op": "-",
+                "expr": {
+                  "kind": "ref",
+                  "name": "n",
+                  "type": "Int"
+                },
+                "type": "Int"
+              }
+            },
+            {
+              "kind": "assign",
+              "name": "__t0",
+              "type": "Int",
+              "value": {
+                "kind": "ref",
+                "name": "__t2",
+                "type": "Int"
+              }
+            }
+          ],
+          "term": {
+            "kind": "jump",
+            "target": "ife.join.2"
+          }
+        },
+        {
+          "label": "ife.else.3",
+          "params": [],
+          "instrs": [
+            {
+              "kind": "assign",
+              "name": "__t0",
+              "type": "Int",
+              "value": {
+                "kind": "ref",
+                "name": "n",
+                "type": "Int"
+              }
+            }
+          ],
+          "term": {
+            "kind": "jump",
+            "target": "ife.join.2"
+          }
+        },
+        {
+          "label": "ife.join.2",
+          "params": [],
+          "instrs": [],
+          "term": {
+            "kind": "return",
+            "value": {
+              "kind": "ref",
+              "name": "__t0",
+              "type": "Int"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "fn",
+      "name": "main",
+      "typeParams": [],
+      "params": [],
+      "ret": "Void",
+      "blocks": [
+        {
+          "label": "main.entry.4",
+          "params": [],
+          "instrs": [
+            {
+              "kind": "assign",
+              "name": "__t3",
+              "type": "Int",
+              "value": {
+                "kind": "unary",
+                "op": "-",
+                "expr": {
+                  "kind": "lit",
+                  "value": 5,
+                  "type": "Int"
+                },
+                "type": "Int"
+              }
+            },
+            {
+              "kind": "assign",
+              "name": "__t4",
+              "type": "Int",
+              "value": {
+                "kind": "call",
+                "callee": {
+                  "kind": "ref",
+                  "name": "abs",
+                  "type": "fn(Int) -> Int"
+                },
+                "args": [
+                  {
+                    "kind": "ref",
+                    "name": "__t3",
+                    "type": "Int"
+                  }
+                ],
+                "type": "Int"
+              }
+            },
+            {
+              "kind": "assign",
+              "name": "__t5",
+              "type": "Void",
+              "value": {
+                "kind": "call",
+                "callee": {
+                  "kind": "ref",
+                  "name": "print",
+                  "type": "Null"
+                },
+                "args": [
+                  {
+                    "kind": "ref",
+                    "name": "__t4",
+                    "type": "Int"
+                  }
+                ],
+                "type": "Void"
+              }
+            }
+          ],
+          "term": {
+            "kind": "return",
+            "value": {
+              "kind": "ref",
+              "name": "__t5",
+              "type": "Void"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

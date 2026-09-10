@@ -1,0 +1,412 @@
+{
+  "name": "main",
+  "imports": [],
+  "decls": [
+    {
+      "kind": "enum",
+      "name": "Color",
+      "typeParams": [],
+      "variants": [
+        {
+          "name": "Red"
+        },
+        {
+          "name": "Green"
+        },
+        {
+          "name": "Blue"
+        }
+      ],
+      "exported": false
+    },
+    {
+      "kind": "fn",
+      "name": "describe",
+      "typeParams": [],
+      "params": [
+        {
+          "name": "c",
+          "type": {
+            "kind": "struct",
+            "name": "Color"
+          }
+        }
+      ],
+      "ret": {
+        "kind": "prim",
+        "name": "String"
+      },
+      "exported": false,
+      "body": {
+        "stmts": [],
+        "tail": {
+          "kind": "match_expr",
+          "subject": {
+            "kind": "ident",
+            "ident": {
+              "kind": "local",
+              "name": "c"
+            },
+            "type": {
+              "kind": "enum",
+              "name": "Color"
+            }
+          },
+          "arms": [
+            {
+              "pattern": {
+                "kind": "path",
+                "enum": "Color",
+                "variant": "Red"
+              },
+              "body": {
+                "stmts": [],
+                "tail": {
+                  "kind": "lit",
+                  "value": "red",
+                  "type": {
+                    "kind": "prim",
+                    "name": "String"
+                  }
+                }
+              }
+            },
+            {
+              "pattern": {
+                "kind": "path",
+                "enum": "Color",
+                "variant": "Green"
+              },
+              "body": {
+                "stmts": [],
+                "tail": {
+                  "kind": "lit",
+                  "value": "green",
+                  "type": {
+                    "kind": "prim",
+                    "name": "String"
+                  }
+                }
+              }
+            },
+            {
+              "pattern": {
+                "kind": "path",
+                "enum": "Color",
+                "variant": "Blue"
+              },
+              "body": {
+                "stmts": [],
+                "tail": {
+                  "kind": "lit",
+                  "value": "blue",
+                  "type": {
+                    "kind": "prim",
+                    "name": "String"
+                  }
+                }
+              }
+            }
+          ],
+          "type": {
+            "kind": "prim",
+            "name": "String"
+          }
+        }
+      }
+    },
+    {
+      "kind": "fn",
+      "name": "count",
+      "typeParams": [],
+      "params": [
+        {
+          "name": "n",
+          "type": {
+            "kind": "prim",
+            "name": "Int"
+          }
+        }
+      ],
+      "ret": {
+        "kind": "prim",
+        "name": "Int"
+      },
+      "exported": false,
+      "body": {
+        "stmts": [
+          {
+            "kind": "let",
+            "name": "total",
+            "type": {
+              "kind": "prim",
+              "name": "Int"
+            },
+            "value": {
+              "kind": "lit",
+              "value": 0,
+              "type": {
+                "kind": "prim",
+                "name": "Int"
+              }
+            },
+            "isConst": false
+          },
+          {
+            "kind": "for",
+            "name": "i",
+            "iter": {
+              "kind": "call",
+              "callee": {
+                "kind": "ident",
+                "ident": {
+                  "kind": "local",
+                  "name": "range"
+                },
+                "type": {
+                  "kind": "prim",
+                  "name": "Null"
+                }
+              },
+              "args": [
+                {
+                  "value": {
+                    "kind": "ident",
+                    "ident": {
+                      "kind": "local",
+                      "name": "n"
+                    },
+                    "type": {
+                      "kind": "prim",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "array",
+                "element": {
+                  "kind": "prim",
+                  "name": "Int"
+                }
+              }
+            },
+            "body": {
+              "stmts": [
+                {
+                  "kind": "assign",
+                  "target": {
+                    "kind": "ident",
+                    "ident": {
+                      "kind": "local",
+                      "name": "total"
+                    },
+                    "type": {
+                      "kind": "prim",
+                      "name": "Int"
+                    }
+                  },
+                  "value": {
+                    "kind": "binary",
+                    "op": "+",
+                    "left": {
+                      "kind": "ident",
+                      "ident": {
+                        "kind": "local",
+                        "name": "total"
+                      },
+                      "type": {
+                        "kind": "prim",
+                        "name": "Int"
+                      }
+                    },
+                    "right": {
+                      "kind": "ident",
+                      "ident": {
+                        "kind": "local",
+                        "name": "i"
+                      },
+                      "type": {
+                        "kind": "prim",
+                        "name": "Int"
+                      }
+                    },
+                    "type": {
+                      "kind": "prim",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "tail": {
+          "kind": "ident",
+          "ident": {
+            "kind": "local",
+            "name": "total"
+          },
+          "type": {
+            "kind": "prim",
+            "name": "Int"
+          }
+        }
+      }
+    },
+    {
+      "kind": "fn",
+      "name": "main",
+      "typeParams": [],
+      "params": [],
+      "ret": {
+        "kind": "void"
+      },
+      "exported": false,
+      "body": {
+        "stmts": [
+          {
+            "kind": "expr",
+            "expr": {
+              "kind": "call",
+              "callee": {
+                "kind": "ident",
+                "ident": {
+                  "kind": "local",
+                  "name": "print"
+                },
+                "type": {
+                  "kind": "prim",
+                  "name": "Null"
+                }
+              },
+              "args": [
+                {
+                  "value": {
+                    "kind": "call",
+                    "callee": {
+                      "kind": "ident",
+                      "ident": {
+                        "kind": "local",
+                        "name": "describe"
+                      },
+                      "type": {
+                        "kind": "fn",
+                        "params": [
+                          {
+                            "name": "c",
+                            "type": {
+                              "kind": "enum",
+                              "name": "Color"
+                            }
+                          }
+                        ],
+                        "ret": {
+                          "kind": "prim",
+                          "name": "String"
+                        }
+                      }
+                    },
+                    "args": [
+                      {
+                        "value": {
+                          "kind": "field",
+                          "name": "Green",
+                          "obj": {
+                            "kind": "ident",
+                            "ident": {
+                              "kind": "local",
+                              "name": "Color"
+                            },
+                            "type": {
+                              "kind": "enum",
+                              "name": "Color"
+                            }
+                          },
+                          "type": {
+                            "kind": "enum",
+                            "name": "Color"
+                          }
+                        }
+                      }
+                    ],
+                    "type": {
+                      "kind": "prim",
+                      "name": "String"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "void"
+              }
+            }
+          }
+        ],
+        "tail": {
+          "kind": "call",
+          "callee": {
+            "kind": "ident",
+            "ident": {
+              "kind": "local",
+              "name": "print"
+            },
+            "type": {
+              "kind": "prim",
+              "name": "Null"
+            }
+          },
+          "args": [
+            {
+              "value": {
+                "kind": "call",
+                "callee": {
+                  "kind": "ident",
+                  "ident": {
+                    "kind": "local",
+                    "name": "count"
+                  },
+                  "type": {
+                    "kind": "fn",
+                    "params": [
+                      {
+                        "name": "n",
+                        "type": {
+                          "kind": "prim",
+                          "name": "Int"
+                        }
+                      }
+                    ],
+                    "ret": {
+                      "kind": "prim",
+                      "name": "Int"
+                    }
+                  }
+                },
+                "args": [
+                  {
+                    "value": {
+                      "kind": "lit",
+                      "value": 4,
+                      "type": {
+                        "kind": "prim",
+                        "name": "Int"
+                      }
+                    }
+                  }
+                ],
+                "type": {
+                  "kind": "prim",
+                  "name": "Int"
+                }
+              }
+            }
+          ],
+          "type": {
+            "kind": "void"
+          }
+        }
+      }
+    }
+  ]
+}

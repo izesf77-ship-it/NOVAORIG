@@ -1,0 +1,13 @@
+fn main() {
+    file_write("nova_test_file.txt", "Hello from NOVA!")
+    println(file_exists("nova_test_file.txt"))
+
+    r = file_read("nova_test_file.txt")
+    match r {
+        ok(text) => { println(text) }
+        error(e) => { println("READ FAILED") }
+    }
+
+    file_delete("nova_test_file.txt")
+    println(file_exists("nova_test_file.txt"))
+}

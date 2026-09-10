@@ -1,0 +1,7 @@
+fn makeAdder(x: Int) -> fn(Int) -> Int {
+    |y| x + y
+}
+
+fn main() {
+    print(makeAdder(7)(3))
+}

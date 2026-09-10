@@ -1,0 +1,5 @@
+fn main() {
+    println(-42)
+    println(0)
+    println(2147483647)
+}

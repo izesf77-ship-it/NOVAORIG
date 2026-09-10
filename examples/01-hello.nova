@@ -1,0 +1,5 @@
+// Hello, World! — the classic first program.
+
+fn main() {
+    print("Hello, NOVA!")
+}

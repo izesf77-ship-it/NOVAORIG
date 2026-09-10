@@ -1,0 +1,34 @@
+=== LLVM tools (PATH) ===
+[MISSING] llc
+[MISSING] clang
+[MISSING] clang-cl
+[MISSING] llvm-as
+[MISSING] opt
+[MISSING] llvm-link
+[MISSING] lld-link
+[MISSING] ld.lld
+[MISSING] llvm-objdump
+[MISSING] llvm-readobj
+[MISSING] gcc
+[MISSING] ld
+
+=== Standard install locations ===
+[MISSING] C:\Program Files\LLVM\bin
+[MISSING] C:\Program Files (x86)\LLVM\bin
+[MISSING] C:\Users\admin\AppData\Local\Programs\LLVM\bin
+[MISSING] C:\Users\admin\scoop\apps\llvm\current\bin
+
+=== MSVC / Visual Studio ===
+[EXISTS] C:\Program Files (x86)\Microsoft Visual Studio
+[NOTE] no cl/link/lld-link under C:\Program Files (x86)\Microsoft Visual Studio
+[EXISTS] C:\Program Files\Microsoft Visual Studio
+[NOTE] no cl/link/lld-link under C:\Program Files\Microsoft Visual Studio
+
+=== Windows SDK ===
+[EXISTS] C:\Program Files (x86)\Windows Kits\10
+  SDK include version: 10.0.26100.0
+
+=== MinGW / GCC fallback ===
+[MISSING] C:\msys64\usr\bin
+[MISSING] C:\mingw64\bin
+[MISSING] C:\MinGW\bin

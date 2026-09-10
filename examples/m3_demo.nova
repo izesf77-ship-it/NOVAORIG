@@ -1,0 +1,18 @@
+enum Color { Red, Green, Blue }
+
+fn name(c: Color) -> String {
+    match c {
+        Color.Red => "red"
+        Color.Green => "green"
+        Color.Blue => "blue"
+    }
+}
+
+fn abs(n: Int) -> Int {
+    if n < 0 { -n } else { n }
+}
+
+fn main() {
+    print(name(Color.Green))
+    print(abs(-42))
+}

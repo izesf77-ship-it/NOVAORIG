@@ -1,0 +1,103 @@
+TAP version 13
+# Subtest: native hello builds and executes as PE/AMD64
+ok 1 - native hello builds and executes as PE/AMD64
+  ---
+  duration_ms: 1998.9996
+  type: 'test'
+  ...
+# Subtest: native println formats signed Int values
+ok 2 - native println formats signed Int values
+  ---
+  duration_ms: 1974.4448
+  type: 'test'
+  ...
+# Subtest: native println formats Bool values
+ok 3 - native println formats Bool values
+  ---
+  duration_ms: 1878.0838
+  type: 'test'
+  ...
+# Subtest: native println formats Float values
+ok 4 - native println formats Float values
+  ---
+  duration_ms: 1957.2659
+  type: 'test'
+  ...
+# Subtest: native input reads and trims one UTF-8 line
+ok 5 - native input reads and trims one UTF-8 line
+  ---
+  duration_ms: 1987.2644
+  type: 'test'
+  ...
+# Subtest: native exit terminates with the requested exit code
+ok 6 - native exit terminates with the requested exit code
+  ---
+  duration_ms: 1996.4447
+  type: 'test'
+  ...
+# Subtest: native panic writes the message to stderr and exits nonzero
+ok 7 - native panic writes the message to stderr and exits nonzero
+  ---
+  duration_ms: 1880.6392
+  type: 'test'
+  ...
+# Subtest: native clock_ms and sleep_ms behave within relaxed bounds
+ok 8 - native clock_ms and sleep_ms behave within relaxed bounds
+  ---
+  duration_ms: 1942.6426
+  type: 'test'
+  ...
+# Subtest: native env_has/env_get read the process environment
+not ok 9 - native env_has/env_get read the process environment
+  ---
+  duration_ms: 4.4942
+  type: 'test'
+  location: 'C:\\Users\\admin\\Desktop\\NOVA\\tests\\native\\native.test.ts:133:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+    + [
+    +   {
+    +     block: 'prop.err.2',
+    +     fn: 'require_env',
+    +     message: 'return type mismatch: expected String, found String?'
+    +   }
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      fn: 'require_env'
+      block: 'prop.err.2'
+      message: 'return type mismatch: expected String, found String?'
+  operator: 'deepStrictEqual'
+  stack: |-
+    buildVerifiedNative (file:///C:/Users/admin/Desktop/NOVA/tests/native/native.test.ts:21:10)
+    TestContext.<anonymous> (file:///C:/Users/admin/Desktop/NOVA/tests/native/native.test.ts:136:21)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: native args exposes process arguments including Unicode
+ok 10 - native args exposes process arguments including Unicode
+  ---
+  duration_ms: 1931.3628
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 9
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 18571.8404

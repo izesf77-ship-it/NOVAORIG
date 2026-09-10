@@ -1,0 +1,13 @@
+// Math utility functions.
+
+fn add(a: Int, b: Int) -> Int { a + b }
+
+fn sub(a: Int, b: Int) -> Int { a - b }
+
+fn mul(a: Int, b: Int) -> Int { a * b }
+
+fn clamp(value: Int, low: Int, high: Int) -> Int {
+    if value < low { low }
+    else if value > high { high }
+    else { value }
+}

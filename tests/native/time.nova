@@ -1,0 +1,6 @@
+fn main() {
+    t1 = clock_ms()
+    sleep_ms(100)
+    t2 = clock_ms()
+    println(t2 - t1)
+}

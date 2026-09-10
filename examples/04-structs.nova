@@ -1,0 +1,51 @@
+// Structs and data modeling.
+
+struct Point {
+    x: Float
+    y: Float
+}
+
+struct Rectangle {
+    top_left: Point
+    width: Float
+    height: Float
+}
+
+struct Color {
+    r: Int
+    g: Int
+    b: Int
+}
+
+struct Button {
+    label: String
+    position: Rectangle
+    color: Color
+    enabled: Bool
+}
+
+fn area(rect: Rectangle) -> Float {
+    rect.width * rect.height
+}
+
+fn move_point(p: Point, dx: Float, dy: Float) -> Point {
+    Point(x: p.x + dx, y: p.y + dy)
+}
+
+fn main() {
+    p = Point(x: 10.0, y: 20.0)
+    rect = Rectangle(top_left: p, width: 100.0, height: 50.0)
+    btn = Button(
+        label: "Click me",
+        position: rect,
+        color: Color(r: 66, g: 133, b: 244),
+        enabled: true,
+    )
+    
+    print("area: {area(rect)}")
+    print("button: {btn.label}")
+    print("enabled: {btn.enabled}")
+    
+    moved = move_point(p, 5.0, -3.0)
+    print("moved: ({moved.x}, {moved.y})")
+}

@@ -1,0 +1,45 @@
+// Functions, recursion, and closures.
+
+fn factorial(n: Int) -> Int {
+    if n <= 1 { 1 } else { n * factorial(n - 1) }
+}
+
+fn fibonacci(n: Int) -> Int {
+    if n <= 1 { n }
+    else { fibonacci(n - 1) + fibonacci(n - 2) }
+}
+
+fn apply_twice(f: fn(Int) -> Int, x: Int) -> Int {
+    f(f(x))
+}
+
+fn make_adder(n: Int) -> fn(Int) -> Int {
+    |x| x + n
+}
+
+fn main() {
+    print("factorial(5) = {factorial(5)}")
+    print("fibonacci(10) = {fibonacci(10)}")
+    
+    double = |x| x * 2
+    print("apply_twice(double, 5) = {apply_twice(double, 5)}")
+    
+    add_three = make_adder(3)
+    print("add_three(7) = {add_three(7)}")
+    
+    // Array operations with closures
+    nums = [1, 2, 3, 4, 5]
+    
+    doubled = []
+    for n in nums { push(doubled, n * 2) }
+    print("doubled: {doubled}")
+    
+    sum = 0
+    for n in nums { sum = sum + n }
+    print("sum: {sum}")
+    
+    // Higher-order: manual fold (map/for would use builtins)
+    product = 1
+    for n in nums { product = product * n }
+    print("product: {product}")
+}

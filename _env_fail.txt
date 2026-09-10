@@ -1,0 +1,26 @@
+﻿  ---
+  duration_ms: 4.4942
+  type: 'test'
+  location: 'C:\\Users\\admin\\Desktop\\NOVA\\tests\\native\\native.test.ts:133:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+    + [
+    +   {
+    +     block: 'prop.err.2',
+    +     fn: 'require_env',
+    +     message: 'return type mismatch: expected String, found String?'
+    +   }
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0:
+      fn: 'require_env'
+      block: 'prop.err.2'
+      message: 'return type mismatch: expected String, found String?'

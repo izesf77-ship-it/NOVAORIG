@@ -1,0 +1,12 @@
+fn divide(a: Int, b: Int) -> Result<Int, String> {
+    if b == 0 { error("div by zero") } else { ok(a / b) }
+}
+
+fn safeDiv(a: Int, b: Int) -> Result<Int, String> {
+    x = divide(a, b)?
+    ok(x + 1)
+}
+
+fn main() {
+    print(safeDiv(10, 2))
+}
